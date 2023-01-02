@@ -62,7 +62,7 @@ A value may be _any valid JS value_ or it may be a **setter function** or **gett
 
 ### Creating Objects with object literal.
 
-The easiest way.
+The simplest way.
 
 An object literal is a comma-separated list of colon-separated name:value pairs enclosed within curly braces.
 
@@ -97,9 +97,61 @@ let obj = {}
 */
 ```
 
-### DETOUR - Object Prototypes
-Any time you create an object using object literal, what JavaScript actially does is that it makes a call to the `new Object()` constructor to create the object.
+<!-- ### DETOUR - Object Prototypes
+Any time you create an object using object literal, what JavaScript actially does is it makes a call to the `new Object()` constructor to create the object.
 
 | What you write | What JavaScript sees/does|
 | --- | --- |
 |`let myObj = {}` | `let myObj = new Object()`|
+ -->
+
+## Querying and Setting Properties
+
+Use the _dot notation_ or _bracket notation_.
+
+When using the dot notation, the righthand value must be a simple identifier naming the property.
+
+```js
+let name = book.athor;
+```
+
+When using bracket notation, the value within the brackets must evaluate to a string or a value that can be converted to a string.
+
+```js
+let name = book["author"];
+```
+
+Querying follows same rules, albeit with the values on the right side.
+
+```js
+book.author = "Bob"; // Dot Notation
+book["author"] = "Bob"; // Bracket Notation
+```
+###### PS: Bracket Notation is also called Array Notation.
+
+### Objects as Associative Arrays.
+Bracket notation looks like one is accessing an array but one that is indexed by strings instead of numbers.
+
+```js
+console.log(arr[0]) // Accessing an array at NUMBERED INDEX 0
+
+console.log(obj["name"]) // Accessing an object using what seems like STRING-INDEXING.
+```
+This kind of string-indexed array is known as an **associative array** (or a **hash** or a **dictionary** in other languages.)
+
+Why is this important/powerful?
+
+In the dot notation, one types identifiers literally. Identifiers are not JavaScript datatypes so the program cannot manipulate them.
+
+However, strings (used in array notation) are JavaScript datatypes and the engine would know how to create and manipulate them while running.
+
+An example of a code hard to achieve with dot notation:
+
+```js
+let addr = ""
+for (let i = 0; i < 4; i++) {
+	addr += customer[`address${i}`] + "\n"
+	addr += customer.address`${i}` + "\n"
+
+}
+```
