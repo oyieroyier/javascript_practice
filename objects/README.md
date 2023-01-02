@@ -127,16 +127,19 @@ Querying follows same rules, albeit with the values on the right side.
 book.author = "Bob"; // Dot Notation
 book["author"] = "Bob"; // Bracket Notation
 ```
+
 ###### PS: Bracket Notation is also called Array Notation.
 
 ### Objects as Associative Arrays.
+
 Bracket notation looks like one is accessing an array but one that is indexed by strings instead of numbers.
 
 ```js
-console.log(arr[0]) // Accessing an array at NUMBERED INDEX 0
+console.log(arr[0]); // Accessing an array at NUMBERED INDEX 0
 
-console.log(obj["name"]) // Accessing an object using what seems like STRING-INDEXING.
+console.log(obj["name"]); // Accessing an object using what seems like STRING-INDEXING.
 ```
+
 This kind of string-indexed array is known as an **associative array** (or a **hash** or a **dictionary** in other languages.)
 
 Why is this important/powerful?
@@ -148,10 +151,15 @@ However, strings (used in array notation) are JavaScript datatypes and the engin
 An example of a code hard to achieve with dot notation:
 
 ```js
-let addr = ""
+let addr = "";
 for (let i = 0; i < 4; i++) {
-	addr += customer[`address${i}`] + "\n"
-	addr += customer.address`${i}` + "\n"
-
+	addr += customer[`address${i}`] + "\n";
 }
 ```
+
+##Inheritance
+Check object.js file to follow through the notes and code on Inheritance.
+
+For optimal results, install the [Quokka Extension](https://marketplace.visualstudio.com/items?itemName=WallabyJs.quokka-vscode) on VS Code.
+
+Enable the Quokka extension on the file using the keyboard shortcut `Ctrl` + `K`, and then `Q`.
