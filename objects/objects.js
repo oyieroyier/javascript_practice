@@ -1,4 +1,4 @@
-// 	QUERYING AND SETTING PROPERTIES
+// QUERYING AND SETTING PROPERTIES
 let student = {
 	name: {
 		first: "Samuel",
@@ -88,3 +88,37 @@ q;
 
 console.log(q.__proto__.y); // The inherited y property still exists, but its value is now hidden.
 // Assignment only modifies the original object and leaves the prototype untouched.
+
+// TESTING PROPERTIES
+
+/* 
+	Testing is done with the:
+		1. in operator
+		2. hasOwnProperty() method
+		3. propertyIsEnumerable() method
+*/
+
+let obj = {
+	x: 1,
+};
+
+// The in operator expects a property name on the left and the object name on the right
+// The property name must be in a string form.
+console.log("x" in obj);
+console.log("y" in obj);
+console.log("toString" in obj); // obj inherits "toString property from Object.prototype"
+
+// hasOwnProperty() method tests whether the object has an own property with a given name.
+// It returns false for inherited properties.
+
+let obj2 = Object.create(obj); // Creating obj2 object inheriting properties from obj (& Object.prototype)
+console.log(obj2.x); // obj2 inherits the property x from obj.
+
+obj2.name = "Siiiiuuuuuu";
+obj2; // Own property is name. Time to test.
+
+console.log(obj2.hasOwnProperty("name"));
+console.log(obj2.hasOwnProperty("x"));
+
+// propertyIsEnumerable() returns true only if the named property is an own property AND its enumerable attribute is true.
+console.log(obj2.propertyIsEnumerable("name"));

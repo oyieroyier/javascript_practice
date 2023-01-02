@@ -125,6 +125,7 @@ Querying follows same rules, albeit with the values on the right side.
 
 ```js
 book.author = "Bob"; // Dot Notation
+
 book["author"] = "Bob"; // Bracket Notation
 ```
 
@@ -152,14 +153,45 @@ An example of a code hard to achieve with dot notation:
 
 ```js
 let addr = "";
+
 for (let i = 0; i < 4; i++) {
 	addr += customer[`address${i}`] + "\n";
 }
 ```
 
 ##Inheritance
-Check object.js file to follow through the notes and code on Inheritance.
+Check object.js file from **line 37** to follow through the notes and code on Inheritance.
 
 For optimal results, install the [Quokka Extension](https://marketplace.visualstudio.com/items?itemName=WallabyJs.quokka-vscode) on VS Code.
 
 Enable the Quokka extension on the file using the keyboard shortcut `Ctrl` + `K`, and then `Q`.
+
+### Property Access Errors
+Property access expressions don't always return a value.
+
+It is NOT an error to query a property that does not exist. It will simply return `undefined`.
+
+It is an error, however, to try and query a property of an object that does not exist.
+
+In short, it is an error to query the values of `null` and `undefined` becayse they have no propetues.
+
+### Delete Properties
+The `delete` operator removes a property from an object.
+
+```js
+delete book.author; // Deletes author using the delete operator and dot notation.
+
+delete book["title"] // Deletes title using the delete operator and array notation
+```
+`delete` operator only deletes own property, not inherited ones.
+
+**To delete an inherited property, you must delete it from the prototype object in which it is defined.
+Doing this affects ALL the objects that inherited from it.**
+
+## Testing Properties
+Check object.js file from **line 92** to follow through the notes and code on Inheritance.
+
+For optimal results, install the [Quokka Extension](https://marketplace.visualstudio.com/items?itemName=WallabyJs.quokka-vscode) on VS Code.
+
+Enable the Quokka extension on the file using the keyboard shortcut `Ctrl` + `K`, and then `Q`.
+
