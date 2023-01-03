@@ -122,3 +122,36 @@ console.log(obj2.hasOwnProperty("x"));
 
 // propertyIsEnumerable() returns true only if the named property is an own property AND its enumerable attribute is true.
 console.log(obj2.propertyIsEnumerable("name"));
+
+// ENUMERATING PROPERTIES
+
+/*
+	 Enumerating the properties in object q created and manipulated directly and indirectly between
+	 lines 56 and 72
+*/
+for (const property in q) {
+	console.log(property); // Logs properties 'z' and 'y' which object q owns; and also 'x' which it inherited from object p.
+}
+
+// An EXPLICIT CHECK is used to filter out inherited properties from beig enumerated.
+for (const property in q) {
+	if (!q.hasOwnProperty(property)) {
+		continue;
+	}
+	console.log(property); // Does not lof inherited property 'x'
+}
+
+// EXTENDING OBJECTS.
+let firstObject = {};
+
+Object.assign(firstObject, student, q);
+/*
+	 First argument is the target object. The one we want to copy things into.
+	 Subsequent arguments 'student' and 'q' (all created previously in this file) are the source objects.
+	 The ones we want to copy from.
+*/
+firstObject;
+
+// firstObject is no longer a blank object but has the enumerable properties of both 'student' and 'q'.
+
+// OBJECT METHODS

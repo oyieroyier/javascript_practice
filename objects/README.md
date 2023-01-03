@@ -2,7 +2,7 @@
 
 Objects are JavaScript's most fundamental datatype.
 
-They are **composite values** meaning they aggregate _aggregate multiple values_ and allow you to store and retreive those values _by name_.
+They are **composite values** meaning they _aggregate multiple values_ and allow you to store and retreive those values _by name_.
 
 Objects are **mutable** and **manipuated by reference** rather than by value.
 
@@ -129,7 +129,7 @@ book.author = "Bob"; // Dot Notation
 book["author"] = "Bob"; // Bracket Notation
 ```
 
-###### PS: Bracket Notation is also called Array Notation.
+**_PS: Bracket Notation is also called Array Notation._**
 
 ### Objects as Associative Arrays.
 
@@ -159,14 +159,24 @@ for (let i = 0; i < 4; i++) {
 }
 ```
 
-##Inheritance
-Check object.js file from **line 37** to follow through the notes and code on Inheritance.
+## Inheritance
+
+Inheritance is the process of reusing _objects_ that serve as _prototypes_.
+
+One object is based upon another object instead of having to retype the properties afresh.
+
+Think of it like the concept of forking/cloning a GitHub repository instead of just coding everything from scratch.
+
+Basing an object on another object is called **_prototypal inheritance_** or **_prototype-based inheritance_**.
+
+Check `object.js` file from **line 37** to follow through the notes and code on Inheritance.
 
 For optimal results, install the [Quokka Extension](https://marketplace.visualstudio.com/items?itemName=WallabyJs.quokka-vscode) on VS Code.
 
 Enable the Quokka extension on the file using the keyboard shortcut `Ctrl` + `K`, and then `Q`.
 
 ### Property Access Errors
+
 Property access expressions don't always return a value.
 
 It is NOT an error to query a property that does not exist. It will simply return `undefined`.
@@ -176,22 +186,46 @@ It is an error, however, to try and query a property of an object that does not 
 In short, it is an error to query the values of `null` and `undefined` becayse they have no propetues.
 
 ### Delete Properties
+
 The `delete` operator removes a property from an object.
 
 ```js
 delete book.author; // Deletes author using the delete operator and dot notation.
 
-delete book["title"] // Deletes title using the delete operator and array notation
+delete book["title"]; // Deletes title using the delete operator and array notation
 ```
+
 `delete` operator only deletes own property, not inherited ones.
 
-**To delete an inherited property, you must delete it from the prototype object in which it is defined.
-Doing this affects ALL the objects that inherited from it.**
+**To delete an inherited property, you must delete it from the prototype object in which it is defined. Doing this affects ALL the objects that inherited from it.**
 
-## Testing Properties
-Check object.js file from **line 92** to follow through the notes and code on Inheritance.
+### Testing Properties
+
+Check `object.js` file from **line 92** to follow through the notes and code on Inheritance.
 
 For optimal results, install the [Quokka Extension](https://marketplace.visualstudio.com/items?itemName=WallabyJs.quokka-vscode) on VS Code.
 
 Enable the Quokka extension on the file using the keyboard shortcut `Ctrl` + `K`, and then `Q`.
 
+### Enumerating Properties
+Usually, it is not merely good enough to know whether a property exists.
+Sometimes we want to get a list of all the properties in an obect.
+
+The `for/in` loop iterates through an object once for each **enumarable** property, whether **own** or **inherited**, assigning the name of the property to the loop variable.
+
+Check `object.js` file from **line 126** to for enumeration of one of the objects created in the Inheritance discussion.
+
+## Extending Objects
+It's common in JavaScript programs to want to copy one object into another.
+
+In ES6, this is possible thanks to `Object.assign()`
+
+`Object.assign()` expects two or more objects as its arguments.
+
+It modifies and returns the first argument only, which is the **target object**.
+
+It does not alter the second or any subsequent arguments. It treats them as **source objects**.
+
+Check `object.js` file from **line 144** to to se how a new object `first Object` has been extended from the object `student` created in the Querying and Setting Properties discussion and object  `q` created in the Inheritance discussion.
+
+## Object Methods
