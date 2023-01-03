@@ -97,14 +97,6 @@ let obj = {}
 */
 ```
 
-<!-- ### DETOUR - Object Prototypes
-Any time you create an object using object literal, what JavaScript actially does is it makes a call to the `new Object()` constructor to create the object.
-
-| What you write | What JavaScript sees/does|
-| --- | --- |
-|`let myObj = {}` | `let myObj = new Object()`|
- -->
-
 ## Querying and Setting Properties
 
 Use the _dot notation_ or _bracket notation_.
@@ -208,6 +200,7 @@ For optimal results, install the [Quokka Extension](https://marketplace.visualst
 Enable the Quokka extension on the file using the keyboard shortcut `Ctrl` + `K`, and then `Q`.
 
 ### Enumerating Properties
+
 Usually, it is not merely good enough to know whether a property exists.
 Sometimes we want to get a list of all the properties in an obect.
 
@@ -216,6 +209,7 @@ The `for/in` loop iterates through an object once for each **enumarable** proper
 Check `object.js` file from **line 126** to for enumeration of one of the objects created in the Inheritance discussion.
 
 ## Extending Objects
+
 It's common in JavaScript programs to want to copy one object into another.
 
 In ES6, this is possible thanks to `Object.assign()`
@@ -226,6 +220,12 @@ It modifies and returns the first argument only, which is the **target object**.
 
 It does not alter the second or any subsequent arguments. It treats them as **source objects**.
 
-Check `object.js` file from **line 144** to to se how a new object `first Object` has been extended from the object `student` created in the Querying and Setting Properties discussion and object  `q` created in the Inheritance discussion.
+Check `object.js` file from **line 144** to to se how a new object `first Object` has been extended from the object `student` created in the Querying and Setting Properties discussion and object `q` created in the Inheritance discussion.
 
 ## Object Methods
+
+All JavaScript objects inherit properties from `Object.prototype`.
+
+These properties are primarily methods; that is why all objects created using object literal have the same prototype.
+
+Some of these methods we have discussed above such as `hasOwnProperty()` and `propertyIsEnumerable()`.
