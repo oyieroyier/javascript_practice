@@ -229,3 +229,33 @@ All JavaScript objects inherit properties from `Object.prototype`.
 These properties are primarily methods; that is why all objects created using object literal have the same prototype.
 
 Some of these methods we have discussed above such as `hasOwnProperty()` and `propertyIsEnumerable()`.
+
+
+## Getter and Setter Functions
+Getters and Setters are special properties that we can use to:
+1. Get data/Access properties from a class.
+2. Set/Change or Mutate the properties.
+
+They are called **accessor properties** (the previous types discussed are called **data properties**). They may look like functions (because of the parentheses) but in reality they are not functions.
+
+They start with the `get` and `set` keywords.
+
+It is best practice to make properties as private as possible and only provide access to the, using getters and setters.
+This means that properties cannot be set from outside without the object itself being in control; a principle called **encapsulation**.
+
+
+When a program queries the value of an accessor property, JS invokes the ``getter`` method (passing no arguments).
+The return value of this method becomes the value of the **property access expression**.
+
+When a program sets the value of an accessor property, JS invokes the `setter` method, passing **the value on the right hand side of the assignment**.
+
+The method, literally, sets the property value.
+
+**The return value of a setter method is ignored**.
+
+A property with both a getter and setter method is a read/write property.
+
+If it only has a getter method it's a read-only property.
+
+If it only has a setter method it's a write-only property. Any attempt to read it will return `undefinded`. This is not possible with data properties.
+

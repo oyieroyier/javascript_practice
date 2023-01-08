@@ -2,11 +2,11 @@
 
 ## A Brief introduction to Functions in JavaScript.
 
-A fxn is a JS code that is defined once but may be executed/invoked any number of times.
+A function is a JS code that is defined once but may be executed/invoked any number of times.
 
-JS fxns are parameterized; a fxn definidion may have parameters that work as local variables for the body of the fxn.
+JS functions are parameterized; a function definition may have parameters that work as local variables for the body of that function.
 
-During invocation, values known as _arguments_ are passed for the fxn's parameters.
+During invocation, values known as _arguments_ are passed for the function's parameters.
 
 ```js
 function greeting(name) {
@@ -21,7 +21,7 @@ Functions often use their argument values to compute a _return value_.
 
 The return value then becomes the value of the **function-invocation expression**.
 
-JS fxns are objects. Meaning they can be:
+JS functions are objects. Meaning they can be:
 
 - Assigned to variables and passed to other functions.
 - Set properties on.
@@ -29,7 +29,8 @@ JS fxns are objects. Meaning they can be:
 
 ## Invoking Functions
 
-In JS, the body inside a function is not invoked wheh the function is defined rather when the function gets invoked.
+In JS, the body inside a function is not invoked when the function is defined rather when the function gets invoked.
+
 JS functions can be invoked in three ways:
 
     1. As functions (Function Invocation)
@@ -46,7 +47,7 @@ JS functions can be invoked in three ways:
 
 Functions are invoked using an **_invocation expression_**.
 
-An invocation expression is JS' syntax for calling or executinf a fxn.
+An invocation expression is JS' syntax for calling or executing a function.
 
 It starts with a function expression followed by open parenthesis, comma separated argument(s), and a closing parenthesis.
 
@@ -60,7 +61,7 @@ greeting("Bob");
 */
 ```
 
-When an invocation expression is evaluated, the function expression is always evaluated first before the arguments. Why?
+When an invocation expression is evaluated, the function expression is always evaluated first before the anything else. Why?
 
 To see if it is really a function. If the function expression is not a function, a _TypeError_ is thrown.
 
