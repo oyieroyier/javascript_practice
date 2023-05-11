@@ -267,7 +267,7 @@ arr.forEach((item, index) => {
 // => 'c' 2
 ```
 
-Finally, we coud use the good old for loop to iterate arrays.
+Finally, we could use the good old for loop to iterate arrays.
 
 ```js
 const arr = ['a', 'b', 'c'];
