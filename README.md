@@ -1,8 +1,6 @@
 # ABOUT
 
-This repository contains code and notes I have written while stydying various concepts of JavaScript.
-
-I have chosen this approach because it is easier to cleanly update and correct notes compared to manual writing.
+This repository contains code and notes I have written while studying various concepts of JavaScript.
 
 If you have any contributions and corrections, kindly feel free to channel them to me.
 
