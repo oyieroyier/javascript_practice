@@ -1,21 +1,21 @@
 // QUERYING AND SETTING PROPERTIES
 let student = {
-	name: {
-		first: "Samuel",
-		second: "Mathenge",
-	},
-	grades: {
-		sciences: {
-			Physics: "A",
-			Chemistry: "B",
-			Biology: "A",
-		},
-		languages: {
-			Kiswahili: "C+",
-			English: "B",
-		},
-	},
-	hobbies: ["Skating", "Football", "Gaming", "Coding"], //Arrays list things that have no distinction between them. All are just hobbies.
+  name: {
+    first: "Samuel",
+    second: "Mathenge",
+  },
+  grades: {
+    sciences: {
+      Physics: "A",
+      Chemistry: "B",
+      Biology: "A",
+    },
+    languages: {
+      Kiswahili: "C+",
+      English: "B",
+    },
+  },
+  hobbies: ["Skating", "Football", "Gaming", "Coding"], //Arrays list things that have no distinction between them. All are just hobbies.
 };
 
 // Using Dot notation:
@@ -28,8 +28,8 @@ console.log(student["hobbies"]);
 
 let hobbyList = "";
 for (let i = 0; i <= 3; i++) {
-	hobbyList += student["hobbies"][i] + "\n";
-	// hobbyList += student.hobbies[i] + "\n";
+  hobbyList += student["hobbies"][i] + "\n";
+  // hobbyList += student.hobbies[i] + "\n";
 }
 
 hobbyList;
@@ -99,7 +99,7 @@ console.log(q.__proto__.y); // The inherited y property still exists, but its va
 */
 
 let obj = {
-	x: 1,
+  x: 1,
 };
 
 // The in operator expects a property name on the left and the object name on the right
@@ -130,15 +130,15 @@ console.log(obj2.propertyIsEnumerable("name"));
 	 lines 56 and 72
 */
 for (const property in q) {
-	console.log(property); // Logs properties 'z' and 'y' which object q owns; and also 'x' which it inherited from object p.
+  console.log(property); // Logs properties 'z' and 'y' which object q owns; and also 'x' which it inherited from object p.
 }
 
 // An EXPLICIT CHECK is used to filter out inherited properties from beig enumerated.
 for (const property in q) {
-	if (!q.hasOwnProperty(property)) {
-		continue;
-	}
-	console.log(property); // Does not lof inherited property 'x'
+  if (!q.hasOwnProperty(property)) {
+    continue;
+  }
+  console.log(property); // Does not lof inherited property 'x'
 }
 
 // EXTENDING OBJECTS.
