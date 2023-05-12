@@ -1,17 +1,17 @@
 # ARRAYS
 
-Arrays are unordered collections of values.
+Arrays are ordered collections of values.
 Each value is called an element and each element has a numeric position called _index_.
 
 Arrays are **untyped** meaning an array element may be of any type.
 
-They are also **dynamic** meaning they can grow and shrink as needed. There is no need to declare a fixed size of the arrau and also no need to reallocate memory when the array size changes.
+They are also **dynamic** meaning they can grow and shrink as needed. There is no need to declare a fixed size of the array and also no need to reallocate memory when the array size changes.
 
 They may also be **sparse** meaning the elements don't need to have contiguous indexes. There may be gaps, and that's okay.
 
 Arrays are special **objects**.
 
-They are optimized to be accessed faster than objects meaning Array elements can be accessed fater than object properties.
+They are optimized to be accessed faster than objects meaning Array elements can be accessed faster than object properties.
 
 JavaScript strings behave like an array of characters.
 
@@ -25,7 +25,7 @@ JavaScript strings behave like an array of characters.
 
 ### Array literals.
 
-This is the simplest and most efficient way of creating an array. It is simply a coma-separated list of array elements within square brackets.
+This is the simplest and most efficient way of creating an array. It is simply a comma-separated list of array elements within square brackets.
 
 ```js
 const arr = ['a', 'b', 'c'];

@@ -28,7 +28,6 @@ sum = ([a, b]: number[], [c, d]: number[]) => {
 
 sum([1, 6], [1, 2]);
 
-
 function factorial(x: number) {
 	if (x < 1) {
 		return 1;
@@ -91,7 +90,24 @@ let obj2 = {
 	},
 };
 
-obj2.m()
+obj2.m();
+
+function people(name: string, ...rest: string[]) {
+	console.log(name);
+	console.log(rest);
+	return rest.forEach((e) => console.log(`Hello ${e}`));
+}
+people('Kimathi', 'Bob', 'Ogada', 'Chemweno');
+
+function add(a: number[], b: number[]) {
+	console.log((a[1] + a[0]) * (b[1] + b[0]));
+}
+add([1, 2], [3, 4]);
+
+function add2([a, b]: number[], [c, d]: number[]) {
+	console.log((a + b) * (c + d));
+}
+add2([1, 2], [3, 4]);
 
 let square: (x: number) => number;
 
@@ -128,3 +144,80 @@ console.log(
 		return num1 - num2;
 	})
 );
+
+function areaOfACircle(pi: number, radius: number) {
+	return pi * square(radius);
+}
+console.log(areaOfACircle(22 / 7, 7));
+
+uniqueCounter.counter = 0;
+function uniqueCounter(): number {
+	return uniqueCounter.counter++;
+}
+console.log(uniqueCounter());
+console.log(uniqueCounter());
+console.log(uniqueCounter());
+console.log(uniqueCounter());
+
+let scope: string = 'global scope';
+
+function checkScope(): string {
+	let scope: string = 'local scope';
+
+	function f(): string {
+		return scope;
+	}
+
+	return f();
+}
+console.log(checkScope());
+
+function constfunc(v: any) {
+	return () => v;
+}
+
+// console.log(constfunc(5)());
+
+let funcs = [];
+
+for (let i = 0; i < 10; i++) funcs[i] = constfunc(i);
+
+console.log(funcs);
+
+console.log(people.length);
+
+function foo(a: string, b: string, c: string, d: string, e: string) {
+	// ...
+}
+console.log(foo.name); // => foo
+console.log(foo.prototype); // => foo
+
+const object = {
+	firstName: 'Bob',
+};
+
+function wazzup(person) {
+	console.log(`Hello ${person}`);
+}
+
+wazzup.call(obj, object.firstName);
+
+const mtu = {
+	name: 'John',
+	yearOfBirth: 2000,
+	occupation: 'Developer',
+};
+
+function greet(name: string, occupation: string) {
+	return `Hello, my name is ${name} and I'm a ${occupation}.`;
+}
+const salaamz = greet.call(person, 'John', 'Developer');
+console.log(salaamz);
+// => Hello, my name is John and I'm a Developer.
+
+function subtract(currentYear: number) {
+	return `You are now ${currentYear - this.yearOfBirth} years old.`;
+}
+
+const currentAge = subtract.bind(mtu);
+console.log(currentAge(2023));
