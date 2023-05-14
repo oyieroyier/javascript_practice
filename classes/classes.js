@@ -1,3 +1,18 @@
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        if (typeof b !== "function" && b !== null)
+            throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
 var __generator = (this && this.__generator) || function (thisArg, body) {
     var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
     return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
@@ -98,7 +113,90 @@ Person.prototype = {
     },
 };
 var bob = new Person('Bob', 36, 'JavaScript');
+var mike = new Person('Bob', 36, 'JavaScript');
 console.log(bob);
 console.log(bob.youthFundQualification());
 console.log(bob.yearsToRetirement());
 console.log(bob.languageChoice());
+var somebody = {
+    name: 'Bob',
+    age: 36,
+    programmingLanguage: 'JavaScript',
+    youthFundQualification: function () {
+        return this.age > 35
+            ? "Sorry, you don't qualify for the Youth Fund"
+            : 'You qualify for the Youth Fund';
+    },
+};
+console.log(somebody.youthFundQualification());
+console.log(somebody instanceof Person);
+function Strange() { }
+Strange.prototype = Person.prototype;
+console.log(bob instanceof Strange);
+console.log(mike instanceof Strange);
+console.log(bob instanceof Person);
+bob.youthFundQualification.isPrototypeOf();
+var Mtu = /** @class */ (function () {
+    function Mtu(name, age, programmingLanguage) {
+        this.name = name;
+        this.age = age;
+        this.programmingLanguage = programmingLanguage;
+        this.name = name;
+        this.age = age;
+        this.programmingLanguage = programmingLanguage;
+    }
+    Mtu.prototype.youthFundQualification = function () {
+        return this.age > 35
+            ? "Sorry, you don't qualify for the Youth Fund"
+            : 'You qualify for the Youth Fund';
+    };
+    Mtu.prototype.yearsToRetirement = function () {
+        var result = 65 - this.age;
+        return "You have ".concat(result, " years left before retirement.");
+    };
+    Mtu.prototype.languageChoice = function () {
+        return this.programmingLanguage === 'JavaScript'
+            ? "You have beautiful taste, ".concat(this.name, "!")
+            : "Do better, ".concat(this.name, "!");
+    };
+    return Mtu;
+}());
+var sammie = new Mtu('Sammie', 22, 'Music');
+console.log(sammie.yearsToRetirement());
+var Humans = /** @class */ (function () {
+    function Humans(name, age, dateOfBirth, residence, canThink, canSee, canWalk) {
+        this.name = name;
+        this.age = age;
+        this.dateOfBirth = dateOfBirth;
+        this.residence = residence;
+        this.canThink = canThink;
+        this.canSee = canSee;
+        this.canWalk = canWalk;
+        this.name = name;
+        this.age = age;
+        this.dateOfBirth = dateOfBirth;
+        this.residence = residence;
+        this.canThink = canThink;
+        this.canSee = canSee;
+        this.canWalk = canWalk;
+    }
+    return Humans;
+}());
+var Student = /** @class */ (function (_super) {
+    __extends(Student, _super);
+    function Student(nameOfSchool, subjectsTaken, currentGrade, enrollmentYear, studentNumber, name, age, dateOfBirth, residence, canThink, canSee, canWalk) {
+        var _this = _super.call(this, name, age, dateOfBirth, residence, canThink, canSee, canWalk) || this;
+        _this.nameOfSchool = nameOfSchool;
+        _this.subjectsTaken = subjectsTaken;
+        _this.currentGrade = currentGrade;
+        _this.enrollmentYear = enrollmentYear;
+        _this.studentNumber = studentNumber;
+        _this.nameOfSchool = nameOfSchool;
+        _this.subjectsTaken = subjectsTaken;
+        _this.currentGrade = currentGrade;
+        _this.enrollmentYear = enrollmentYear;
+        _this.studentNumber = studentNumber;
+        return _this;
+    }
+    return Student;
+}(Humans));
