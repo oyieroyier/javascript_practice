@@ -2,7 +2,7 @@
 
 Objects do not exist in a vacuum. They always tend to borrow some properties from other objects.
 Think of humans in general. We have some general features such as a name, age, date of birth, residence, the ability to think, see, walk etc.
-Now, think of a student. As a human being, a student ordinarily has all these features of a human being listed above, alongside some student-specific ones; such as the name of the school they go to, the subjects they do, their crrent grade, their enrollment year, their student number etc.
+Now, think of a student. As a human being, a student ordinarily has all these features of a human being listed above, alongside some student-specific ones; such as the name of the school they go to, the subjects they do, their current grade, their enrollment year, their student number etc.
 
 When defining a `student` object, we could write all these properties they have as follows:
 
@@ -193,7 +193,7 @@ console.log(wendy); // => { name: 'Wendy', age: 52, programmingLanguage: 'Ruby' 
 
 You don't see the additional functionality we added to the `Person` constructor function prototype object, but they have been inherited by these object instances and can be accessed by simply calling them.
 
-- `youthFundQuaification()`
+- `youthFundQualification()`
 
 ```ts
 console.log(walter.youthFundQualification());
@@ -225,7 +225,7 @@ console.log(wendy.languageChoice());
 - **Remember, if the property is a method, don't forget to invoke it.**
 - **Also, the `Function.prototype` convention is mandatory, if you want to add extra functionality to the constructor function's prototype that will be inherited by the class instances. An invocation of the `Person()` constructor automatically uses `Person.prototype` as the prototype of the new `Person` object.**
 
-We do not use arrow function syntax for constructor functions or the pototype methods because arrow functions do not have a prototype property and so can't be used as constructors.
+We do not use arrow function syntax for constructor functions or the prototype methods because arrow functions do not have a prototype property and so can't be used as constructors.
 
 Also, arrow functions inherit the `this` keyword from the context in which they were defined rather than setting it in the object in wich they were invoked. This makes them useless for method invocation.
 
@@ -261,7 +261,7 @@ The syntax is:
 object instanceof constructor;
 ```
 
-The lefthand operand should be the object being tested and the righthand operand should be the conttructor function that names the class.
+The left-hand operand should be the object being tested and the right-hand operand should be the constructor function that names the class.
 
 The `instanceof` operator returns a boolean value.
 
@@ -281,7 +281,7 @@ Using the previous examples, we can check if `bob` is also an instance of `Someb
 
 ```ts
 console.log(bob instanceof SomebodyElse); // => true
-// even though bob is created by Person.prototype
+// even though bob directly inherits from Person.prototype
 // => true
 ```
 
@@ -289,7 +289,7 @@ console.log(bob instanceof SomebodyElse); // => true
 
 ES6 finally gave JavaScript its own syntax for writing classes with the introduction of the `class` keyword.
 
-Let' rewrite the previous `Person()` costructor function using the `class` keyword:
+Let' rewrite the previous `Person()` constructor function using the `class` keyword:
 
 ```ts
 class Mtu {
