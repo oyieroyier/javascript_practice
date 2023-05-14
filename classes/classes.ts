@@ -137,6 +137,13 @@ class Mtu {
 		this.name = name;
 		this.age = age;
 		this.programmingLanguage = programmingLanguage;
+
+		Mtu.instanceCount++;
+	}
+	static instanceCount = 0;
+
+	static getInstanceCount() {
+		return Mtu.instanceCount;
 	}
 
 	youthFundQualification() {
@@ -203,3 +210,10 @@ class Student extends Humans {
 		this.studentNumber = studentNumber;
 	}
 }
+
+const you = new Mtu('asa', 22, 'sas');
+
+console.log(Person.prototype.youthFundQualification());
+console.log(Mtu.getInstanceCount());
+
+

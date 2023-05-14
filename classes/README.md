@@ -399,3 +399,115 @@ Inasmuch as this is TypeScript notation, you can see that we don't need to decla
 
 - All code within a `class` declaration is implicitly in strict mode.
 - Unlike function declarations, class declarations are not hoisted. You cannot instantiate a class before you declare it.
+
+### Static Methods
+
+Static methods are methods that are properties of the constructor function and not of the prototype object.
+
+We define a static method within a class body by prefixing the method declaration with the `static` keyword.
+
+What's the difference?
+
+When we want to invoke methods that are properties of the prototype, we use the `Class.prototype.method` syntax. eg:
+
+```ts
+Person.prototype.youthFundQualification();
+```
+
+When we want to invoke methods that are properties of the constructor, we use the `Class.method` syntax. eg:
+
+```ts
+Person.youthFundQualification();
+```
+
+Let me demonstrate a use of a static method.
+I'll add a method in the `Person()` class that keeps track of the number of instances of that class.
+
+I'll first add this line just under the constructor function.
+
+```ts
+	static instanceCount = 0;
+```
+
+This sets the initial count of the instances to 0.
+
+Next, I increase the count by 1 inside the constructor function.
+That means that any time the function is invoked, which is how a new instance is created, the count increases by 1.
+
+It now looks like this:
+
+```ts
+constructor(
+		public name: string,
+		public age: number,
+		public programmingLanguage: string
+	) {
+		this.name = name;
+		this.age = age;
+		this.programmingLanguage = programmingLanguage;
+
+		Mtu.instanceCount++;
+	}
+```
+
+Finally, we have a static method that returns the number of instances:
+
+```ts
+	static getInstanceCount() {
+		return this.instanceCount;
+	}
+```
+
+The class now looks like this:
+
+```ts
+class Person {
+	constructor(
+		public name: string,
+		public age: number,
+		public programmingLanguage: string
+	) {
+		this.name = name;
+		this.age = age;
+		this.programmingLanguage = programmingLanguage;
+
+		Mtu.instanceCount++;
+	}
+	static instanceCount = 0;
+
+	static getInstanceCount() {
+		return this.instanceCount;
+	}
+
+	youthFundQualification() {
+		return this.age > 35
+			? "Sorry, you don't qualify for the Youth Fund"
+			: 'You qualify for the Youth Fund';
+	}
+
+	yearsToRetirement() {
+		let result = 65 - this.age;
+		return `You have ${result} years left before retirement.`;
+	}
+
+	languageChoice() {
+		return this.programmingLanguage === 'JavaScript'
+			? `You have beautiful taste, ${this.name}!`
+			: `Do better, ${this.name}!`;
+	}
+}
+```
+
+To know how many instances of the `Person()` class exist, we call the `Person.getInstanceCount()` method.
+
+```ts
+const bob = new Person('Bob', 50, 'JavaScript');
+const rodgers = new Person('Rodgers', 30, 'Ruby');
+const felix = new Person('Felix', 40, 'Python');
+const prince = new Person('Prince', 20, 'Kotlin');
+
+console.log(Person.getInstanceCount()); // => 4
+```
+
+Static methods are sometimes called _class methods_ because they are invoked using the class/constructor whereas the regular methods are usually invoked using the instance of the class.
+
