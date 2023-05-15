@@ -215,5 +215,19 @@ const you = new Mtu('asa', 22, 'sas');
 
 console.log(Person.prototype.youthFundQualification());
 console.log(Mtu.getInstanceCount());
+const aStudent = new Student(
+	'Morning School',
+	'Software Engineering',
+	'Phase 4',
+	2022,
+	'A123BB',
+	'Bob Oyier',
+	24,
+	'12/22/2000',
+	'Washington',
+	true,
+	true,
+	true
+);
 
-
+console.log(aStudent);

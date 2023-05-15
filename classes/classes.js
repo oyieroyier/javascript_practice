@@ -144,7 +144,11 @@ var Mtu = /** @class */ (function () {
         this.name = name;
         this.age = age;
         this.programmingLanguage = programmingLanguage;
+        Mtu.instanceCount++;
     }
+    Mtu.getInstanceCount = function () {
+        return Mtu.instanceCount;
+    };
     Mtu.prototype.youthFundQualification = function () {
         return this.age > 35
             ? "Sorry, you don't qualify for the Youth Fund"
@@ -159,6 +163,7 @@ var Mtu = /** @class */ (function () {
             ? "You have beautiful taste, ".concat(this.name, "!")
             : "Do better, ".concat(this.name, "!");
     };
+    Mtu.instanceCount = 0;
     return Mtu;
 }());
 var sammie = new Mtu('Sammie', 22, 'Music');
@@ -200,3 +205,8 @@ var Student = /** @class */ (function (_super) {
     }
     return Student;
 }(Humans));
+var you = new Mtu('asa', 22, 'sas');
+console.log(Person.prototype.youthFundQualification());
+console.log(Mtu.getInstanceCount());
+var aStudent = new Student('Morning School', 'Software Engineering', 'Phase 4', 2022, 'A123BB', 'Bob Oyier', 24, '12/22/2000', 'Washington', true, true, true);
+console.log(aStudent);

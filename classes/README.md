@@ -227,7 +227,7 @@ console.log(wendy.languageChoice());
 
 We do not use arrow function syntax for constructor functions or the prototype methods because arrow functions do not have a prototype property and so can't be used as constructors.
 
-Also, arrow functions inherit the `this` keyword from the context in which they were defined rather than setting it in the object in wich they were invoked. This makes them useless for method invocation.
+Also, arrow functions inherit the `this` keyword from the context in which they were defined rather than setting it in the object in which they were invoked. This makes them useless for method invocation.
 
 #### Constructors, Class Identity and `instanceof`
 
@@ -446,7 +446,7 @@ constructor(
 		this.age = age;
 		this.programmingLanguage = programmingLanguage;
 
-		Mtu.instanceCount++;
+		Person.instanceCount++;
 	}
 ```
 
@@ -471,7 +471,7 @@ class Person {
 		this.age = age;
 		this.programmingLanguage = programmingLanguage;
 
-		Mtu.instanceCount++;
+		Person.instanceCount++;
 	}
 	static instanceCount = 0;
 
@@ -511,3 +511,19 @@ console.log(Person.getInstanceCount()); // => 4
 
 Static methods are sometimes called _class methods_ because they are invoked using the class/constructor whereas the regular methods are usually invoked using the instance of the class.
 
+## Subclasses
+
+When class B extends class A, A is the **superclass** and B is the **subclass**. Instances of B inherit the methods of A.
+
+Subclass B can define its own methods, some of which can override those of the A class.
+
+#### A few notes about using `super()` in constructors:
+
+- If you define a class with the with the `extends` keyword, then the constructor for your class must use `super()` to invoke the superclass constructor.
+  We saw this when te `Student()` class in the previous example used `super()` to invoke the constructor in the `Humans()` class which defined the 7 properties we needed to inherit.
+- Even if you don't define a constructor in your subclass, one will be automatically defined for you. This implicitly defined constructor takes the values passed to it and passes those values to `super()`.
+- You may not use the `this` keyword before invoking the superclass constructor using `super()`.
+  This is because as a rule, superclasses are enforced before subclasses are.
+  In the Students code snippet above, try putting the `		this.nameOfSchool = nameOfSchool` statement above the `super()` and see the errors your entire code will show.
+- The special expression `new.target` is undefined in functions invoked without the `new` keyword. But in constructor functions, `new.target` is a reference to the constructor that was invoked.
+When a subclass constructor is invoked and uses the `super()` keyword to invoke the superclass constructor, the superclass constructor will see the subclass constructor as the value of `new.target`.
